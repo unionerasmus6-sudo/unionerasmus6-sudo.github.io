@@ -1,0 +1,36 @@
+/* UniOn Landing – main styles (mobile-first) */
+:root{
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-8:48px;
+  --accent:#4F46E5;--accent-2:#22D3EE;--bg:#0F172A;--text:#E5E7EB;--muted:#9CA3AF;
+}
+
+/* Typography */
+h1,h2,h3{letter-spacing:-0.02em}
+h1{font-weight:800}
+h2{font-weight:700}
+h3{font-weight:700}
+p{line-height:1.6}
+
+/* Utilities */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Micro animations */
+.fade-in{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+.fade-in.is-visible{opacity:1;transform:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:#111827;border:1px solid rgba(255,255,255,.1);color:var(--text);text-decoration:none}
+.btn:hover{background:#0F172A}
+
+/* Footer */
+footer a{color:var(--text)}
+footer a:hover{text-decoration:underline}
+
+/* High-contrast focus */
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+
+/* Prefer-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}
+
