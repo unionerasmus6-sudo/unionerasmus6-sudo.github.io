@@ -58,4 +58,23 @@
       });
     }
   } catch(_) {}
+
+  // Header: sticky shadow + mobile menu
+  try {
+    var header = document.querySelector('.site-header');
+    var toggle = document.querySelector('.menu-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (header) {
+      window.addEventListener('scroll', function(){
+        if (window.scrollY > 8) header.classList.add('is-scrolled'); else header.classList.remove('is-scrolled');
+      });
+    }
+    if (toggle && header && nav) {
+      toggle.addEventListener('click', function(){
+        var open = header.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true':'false');
+      });
+      nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ header.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); }); });
+    }
+  } catch(_){ }
 })();
