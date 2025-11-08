@@ -28,10 +28,6 @@
     <style>
       body{background:linear-gradient(180deg,#0F172A,#0A0F1C);color:#E5E7EB}
       .container{width:min(900px,92%);margin-inline:auto;padding:32px 0}
-      header{position:sticky;top:0;background:rgba(10,15,28,.6);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
-      .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-      .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-      .brand img{width:28px;height:28px;border-radius:8px}
       main{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px}
       h1{font-size:clamp(24px,4.6vw,34px);margin:6px 0 10px}
       h2{font-size:18px;margin:18px 0 8px}
@@ -41,17 +37,26 @@
     </style>
   </head>
   <body>
-    <header role="banner">
+    <header class="site-header" role="banner">
       <div class="container nav">
-        <div class="brand"><img src="../assets/images/icon.png" alt="Logo UniOn" width="28" height="28"><a href="index.html" style="text-decoration:none">UniOn</a></div>
-        <nav aria-label="Breadcrumb e lingua">
-          <a href="index.html">Home</a>
-          <span aria-hidden="true"> · </span>
-          <span class="muted">Privacy</span>
-          <span aria-hidden="true"> · </span>
-          <a href="#" id="lang-en" aria-label="Switch to English">EN</a>
-          <span aria-hidden="true">/</span>
-          <a href="#" id="lang-it" aria-label="Passa all'italiano">IT</a>
+        <a class="brand" href="index-it.html" aria-label="UniOn">
+          <img src="../assets/images/icon.png" alt="Logo UniOn" width="32" height="32">
+          <span>UniOn</span>
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="visually-hidden">Apri menu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Principale">
+          <a href="index-it.html#caratteristiche">Caratteristiche</a>
+          <a href="index-it.html#download">Scarica</a>
+          <a href="privacy-it.html">Privacy</a>
+          <div class="nav__end">
+            <div class="lang-switch" role="group" aria-label="Lingua">
+              <button id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+              <button id="lang-it" data-lang="it" aria-pressed="true">IT</button>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -200,4 +205,3 @@
     <script src="assets/js/main.js" defer></script>
   </body>
   </html>
-
