@@ -5,5 +5,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://www.example.com/landing/sitemap.xml
-
+Sitemap: https://www.unionerasmus.com/sitemap.xml
