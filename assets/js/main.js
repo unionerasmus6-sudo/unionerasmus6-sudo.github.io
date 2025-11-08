@@ -30,8 +30,8 @@
     var path = (location.pathname || '').toLowerCase();
     var isPrivacyEn = /\/privacy\.html$/.test(path);
     var isPrivacyIt = /\/privacy-it\.html$/.test(path);
-    var isHomeEn = /\/landing\/?(index\.html)?$/.test(path);
-    var isHomeIt = /\/landing\/index-it\.html$/.test(path);
+    var isHomeEn = /^\/(index\.html)?$/.test(path);
+    var isHomeIt = /^\/index-it\.html$/.test(path);
 
     if (isPrivacyEn || isPrivacyIt || isHomeEn || isHomeIt) {
       var stored = localStorage.getItem('siteLang') || localStorage.getItem('privacyLang');
