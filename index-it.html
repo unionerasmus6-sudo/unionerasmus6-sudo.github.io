@@ -86,22 +86,26 @@
   </head>
   <body>
     <a class="skip-link" href="#contenuto">Salta al contenuto</a>
-    <header role="banner">
-      <div class="container nav" aria-label="Intestazione">
-        <div class="brand" aria-label="UniOn">
+    <header class="site-header" role="banner">
+      <div class="container nav">
+        <a class="brand" href="index-it.html" aria-label="UniOn">
           <img src="../assets/images/icon.png" alt="Logo UniOn" width="32" height="32">
           <span>UniOn</span>
-        </div>
-        <nav aria-label="Principale e lingua">
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="visually-hidden">Apri menu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Principale">
           <a href="#caratteristiche">Caratteristiche</a>
-          <span aria-hidden="true"> · </span>
           <a href="#download">Scarica</a>
-          <span aria-hidden="true"> · </span>
           <a href="privacy-it.html">Privacy</a>
-          <span aria-hidden="true"> · </span>
-          <a href="#" id="lang-en" aria-label="Switch to English">EN</a>
-          <span aria-hidden="true">/</span>
-          <a href="#" id="lang-it" aria-label="Passa all'italiano">IT</a>
+          <div class="nav__end">
+            <div class="lang-switch" role="group" aria-label="Lingua">
+              <button id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+              <button id="lang-it" data-lang="it" aria-pressed="true">IT</button>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
