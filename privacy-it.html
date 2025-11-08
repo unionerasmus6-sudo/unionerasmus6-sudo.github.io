@@ -37,6 +37,7 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#contenuto">Salta al contenuto</a>
     <header class="site-header" role="banner">
       <div class="container nav">
         <a class="brand" href="index-it.html" aria-label="UniOn">
@@ -52,9 +53,16 @@
           <a href="index-it.html#download">Scarica</a>
           <a href="privacy-it.html">Privacy</a>
           <div class="nav__end">
-            <div class="lang-switch" role="group" aria-label="Lingua">
-              <button id="lang-en" data-lang="en" aria-pressed="false">EN</button>
-              <button id="lang-it" data-lang="it" aria-pressed="true">IT</button>
+            <div class="lang-dropdown">
+              <button class="lang-button" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.7 9h-3.4a12.6 12.6 0 01-1 4.3 8 8 0 004.4-4.3zM12 4a8 8 0 00-2.2 4h4.4A8 8 0 0012 4zm-4 6a12.6 12.6 0 011-4.3A8 8 0 004.6 10H8zm0 2H4.6a8 8 0 004.4 4.3 12.6 12.6 0 01-1-4.3zm2.2 0a10.7 10.7 0 00.9 3.8c.4 1 .9 1.9 1.9 1.9s1.5-.9 1.9-1.9a10.7 10.7 0 00.9-3.8 10.7 10.7 0 00-.9-3.8c-.4-1-.9-1.9-1.9-1.9s-1.5.9-1.9 1.9a10.7 10.7 0 00-.9 3.8zm2.2 6a8 8 0 002.2-4H10a8 8 0 002.2 4zm3.8-10a12.6 12.6 0 011-4.3A8 8 0 0019.4 10H16z"/></svg>
+                <span class="label">Lingua</span>
+                <span class="badge">IT</span>
+              </button>
+              <div id="lang-menu" class="lang-menu" role="menu" hidden>
+                <button data-lang="en" role="menuitemradio" aria-checked="false">English</button>
+                <button data-lang="it" role="menuitemradio" aria-checked="true">Italiano</button>
+              </div>
             </div>
           </div>
         </nav>
@@ -62,7 +70,7 @@
     </header>
 
     <div class="container">
-      <main role="main" aria-labelledby="tit-privacy">
+      <main id="contenuto" role="main" aria-labelledby="tit-privacy">
         <h1 id="tit-privacy">Privacy Policy — Union</h1>
         <p class="muted">Ultimo aggiornamento: 6 novembre 2025</p>
 
