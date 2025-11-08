@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Privacy Policy — UniOn</title>
     <meta name="description" content="Informativa sulla privacy di UniOn: dati trattati, finalità, basi giuridiche GDPR, conservazione, diritti degli utenti e contatti.">
-    <link rel="canonical" href="/landing/privacy.html">
+    <link rel="canonical" href="/privacy.html">
     <meta name="theme-color" content="#0F172A">
 
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Privacy Policy — UniOn">
     <meta property="og:description" content="How UniOn processes your personal data and how to exercise your rights.">
-    <meta property="og:url" content="/landing/privacy.html">
+    <meta property="og:url" content="/privacy.html">
     <meta property="og:site_name" content="UniOn">
     <meta property="og:image" content="../assets/images/splash-icon.png">
 
@@ -20,17 +20,13 @@
     <link rel="apple-touch-icon" href="../assets/images/icon.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <link rel="alternate" href="/landing/privacy-it.html" hreflang="it">
-    <link rel="alternate" href="/landing/privacy.html" hreflang="en">
-    <link rel="alternate" href="/landing/privacy.html" hreflang="x-default">
+    <link rel="alternate" href="/privacy-it.html" hreflang="it">
+    <link rel="alternate" href="/privacy.html" hreflang="en">
+    <link rel="alternate" href="/privacy.html" hreflang="x-default">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
       body{background:linear-gradient(180deg,#0F172A,#0A0F1C);color:#E5E7EB}
       .container{width:min(900px,92%);margin-inline:auto;padding:32px 0}
-      header{position:sticky;top:0;background:rgba(10,15,28,.6);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
-      .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-      .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-      .brand img{width:28px;height:28px;border-radius:8px}
       main{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px}
       h1{font-size:clamp(24px,4.6vw,34px);margin:6px 0 10px}
       h2{font-size:18px;margin:18px 0 8px}
@@ -40,6 +36,7 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header class="site-header" role="banner">
       <div class="container nav">
         <a class="brand" href="index.html" aria-label="UniOn">
@@ -55,9 +52,16 @@
           <a href="index.html#download">Download</a>
           <a href="privacy.html">Privacy</a>
           <div class="nav__end">
-            <div class="lang-switch" role="group" aria-label="Language">
-              <button id="lang-en" data-lang="en" aria-pressed="true">EN</button>
-              <button id="lang-it" data-lang="it" aria-pressed="false">IT</button>
+            <div class="lang-dropdown">
+              <button class="lang-button" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.7 9h-3.4a12.6 12.6 0 01-1 4.3 8 8 0 004.4-4.3zM12 4a8 8 0 00-2.2 4h4.4A8 8 0 0012 4zm-4 6a12.6 12.6 0 011-4.3A8 8 0 004.6 10H8zm0 2H4.6a8 8 0 004.4 4.3 12.6 12.6 0 01-1-4.3zm2.2 0a10.7 10.7 0 00.9 3.8c.4 1 .9 1.9 1.9 1.9s1.5-.9 1.9-1.9a10.7 10.7 0 00.9-3.8 10.7 10.7 0 00-.9-3.8c-.4-1-.9-1.9-1.9-1.9s-1.5.9-1.9 1.9a10.7 10.7 0 00-.9 3.8zm2.2 6a8 8 0 002.2-4H10a8 8 0 002.2 4zm3.8-10a12.6 12.6 0 011-4.3A8 8 0 0019.4 10H16z"/></svg>
+                <span class="label">Language</span>
+                <span class="badge">EN</span>
+              </button>
+              <div id="lang-menu" class="lang-menu" role="menu" hidden>
+                <button data-lang="en" role="menuitemradio" aria-checked="true">English</button>
+                <button data-lang="it" role="menuitemradio" aria-checked="false">Italiano</button>
+              </div>
             </div>
           </div>
         </nav>
@@ -65,7 +69,7 @@
     </header>
 
     <div class="container">
-      <main role="main" aria-labelledby="tit-privacy">
+      <main id="content" role="main" aria-labelledby="tit-privacy">
         <h1 id="tit-privacy">Privacy Policy — Union</h1>
         <p class="muted">Last updated: November 6, 2025</p>
 
