@@ -40,17 +40,26 @@
     </style>
   </head>
   <body>
-    <header role="banner">
+    <header class="site-header" role="banner">
       <div class="container nav">
-        <div class="brand"><img src="../assets/images/icon.png" alt="UniOn logo" width="28" height="28"><a href="index.html" style="text-decoration:none">UniOn</a></div>
-        <nav aria-label="Breadcrumb and language">
-          <a href="index.html">Home</a>
-          <span aria-hidden="true"> · </span>
-          <span class="muted">Privacy</span>
-          <span aria-hidden="true"> · </span>
-          <a href="#" id="lang-en" aria-label="Switch to English">EN</a>
-          <span aria-hidden="true">/</span>
-          <a href="#" id="lang-it" aria-label="Passa all'italiano">IT</a>
+        <a class="brand" href="index.html" aria-label="UniOn">
+          <img src="../assets/images/icon.png" alt="UniOn logo" width="32" height="32">
+          <span>UniOn</span>
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="visually-hidden">Open menu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Primary">
+          <a href="index.html#features">Features</a>
+          <a href="index.html#download">Download</a>
+          <a href="privacy.html">Privacy</a>
+          <div class="nav__end">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+              <button id="lang-it" data-lang="it" aria-pressed="false">IT</button>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
