@@ -139,7 +139,6 @@
         <nav id="primary-nav" class="nav__links" aria-label="Primary">
           <a href="#features">Features</a>
           <a href="#download">Download</a>
-          <a href="#moderation">Moderazione</a>
           <a href="privacy.html">Privacy</a>
           <div class="nav__end">
             <div class="lang-dropdown">
@@ -262,61 +261,6 @@
         </details>
       </section>
 
-      <!-- Moderazione -->
-      <section class="section moderation-section" id="moderation" aria-labelledby="tit-moderation" data-supabase-url="" data-supabase-key="">
-        <header class="moderation-heading">
-          <h2 class="section__title" id="tit-moderation">Moderazione e governance</h2>
-          <p>Moderatori autenticati controllano ban/unban, segnalazioni e richieste universitarie direttamente su Supabase.</p>
-        </header>
-        <div class="moderation-grid">
-          <article class="moderation-card" aria-labelledby="moderation-login-title">
-            <h3 id="moderation-login-title">Accesso moderatori</h3>
-            <p>Inserisci email e password (o usa magic link) per iniziare. Il sistema verifica l’attributo <code>is_admin</code> su <code>erasmus_users</code>.</p>
-            <form id="moderator-login-form" class="moderation-form">
-              <label for="moderator-email">Email</label>
-              <input type="email" id="moderator-email" name="email" autocomplete="email" required placeholder="moderatore@unionerasmus.com">
-              <label for="moderator-password">Password</label>
-              <input type="password" id="moderator-password" name="password" autocomplete="current-password" required placeholder="••••••••">
-              <button class="btn" type="submit">Accedi</button>
-            </form>
-            <p class="moderation-hint">Configura l’URL e la chiave anonima Supabase nelle variabili sopra per abilitare il login.</p>
-          </article>
-          <article class="moderation-card moderation-overview" id="moderation-dashboard" aria-live="polite">
-            <h3>Dashboard rapida</h3>
-            <p class="moderation-status" id="moderation-status" role="status">Effettua il login per visualizzare gli stati dei tavoli moderazione.</p>
-            <ul class="moderation-stats">
-              <li>
-                <span>Azioni attive</span>
-                <strong data-stat="bans">—</strong>
-              </li>
-              <li>
-                <span>Segnalazioni in attesa</span>
-                <strong data-stat="reports">—</strong>
-              </li>
-              <li>
-                <span>Richieste universitarie</span>
-                <strong data-stat="universities">—</strong>
-              </li>
-            </ul>
-            <button type="button" class="btn moderation-refresh" id="moderation-refresh" disabled>Aggiorna conteggi</button>
-            <div class="moderation-details">
-              <article>
-                <h4>Ban / Unban</h4>
-                <p>Usiamo <code>moderation_actions</code> e <code>blocked_users</code> per tracciare sospensioni e blocchi manuali.</p>
-              </article>
-              <article>
-                <h4>Segnalazioni</h4>
-                <p>Le richieste in stato <code>pending</code> o <code>under_review</code> sono gestite da <code>user_reports</code>.</p>
-              </article>
-              <article>
-                <h4>Università</h4>
-                <p>Autorizziamo nuovi istituti aggiornando lo stato di <code>university_requests</code> e sincronizzando con <code>universities</code>.</p>
-              </article>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <!-- Privacy & Contatti -->
       <section class="section" aria-labelledby="tit-legal">
         <h2 class="section__title" id="tit-legal">Privacy &amp; Contact</h2>
@@ -341,13 +285,4 @@
     -->
 
     <script src="assets/js/main.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js" defer></script>
-    <script>
-      window.UNION_MODERATOR_CONFIG = {
-        supabaseUrl: 'https://fgqntkzphufwpmuuoapv.supabase.co',
-        supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncW50a3pwaHVmd3BtdXVvYXB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY0ODA4OTUsImV4cCI6MjA3MjA1Njg5NX0.xBBBox755TfRZhxKDQDRpmMZ6P9xwkJiMU6W12M4Xr8'
-      };
-    </script>
-    <script src="assets/js/moderation.js" defer></script>
-  </body>
   </html>
