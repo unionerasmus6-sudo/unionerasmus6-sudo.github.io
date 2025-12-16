@@ -150,25 +150,8 @@
           <button type="submit">Accedi</button>
         </form>
         <div id="moderation-status" role="status" aria-live="polite"></div>
-        <div id="moderation-dashboard" hidden>
-          <button id="moderation-refresh" disabled style="margin-top:12px;">Aggiorna conteggi</button>
-          <p style="margin:8px 0 0;font-size:12px;color:rgba(226,232,240,0.7);">I dati qui sotto sono visibili unicamente ai moderatori verificati con il flag amministratore.</p>
-          <div class="stats-grid" aria-live="polite">
-            <article class="stat-card">
-              <span data-stat="bans">0</span>
-              <p>Bans attivi</p>
-            </article>
-            <article class="stat-card">
-              <span data-stat="reports">0</span>
-              <p>Segnalazioni aperte</p>
-            </article>
-            <article class="stat-card">
-              <span data-stat="universities">0</span>
-              <p>Domande universitarie</p>
-            </article>
-          </div>
-        </div>
-        </section>
+        <p class="notes" style="margin-top:24px;">Dopo l’autenticazione verrai reindirizzato alla dashboard di moderazione dove potrai controllare ban, segnalazioni e richieste universitarie.</p>
+      </section>
         <p class="notes">Configura gli attributi <code>data-supabase-url</code> e <code>data-supabase-key</code> oppure passa <code>window.UNION_MODERATOR_CONFIG</code> prima dello script per abilitare il login. Non inserire la service-role key in questa pagina pubblica.</p>
       </div>
     </main>
