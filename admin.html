@@ -137,20 +137,22 @@
       <div class="card" role="region" aria-labelledby="admin-login-title">
         <h1 id="admin-login-title">Accesso moderazione</h1>
         <p>Inserisci le tue credenziali per controllare lo stato della moderazione. Solo utenti autorizzati possono proseguire.</p>
-        <section id="moderation" data-supabase-url="" data-supabase-key="">
-          <form id="moderator-login-form">
-            <div class="form-group">
-              <label for="moderator-email">Email</label>
-              <input id="moderator-email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="form-group">
-              <label for="moderator-password">Password</label>
-              <input id="moderator-password" name="password" type="password" autocomplete="current-password" required>
-            </div>
-            <button type="submit">Accedi</button>
-          </form>
+        <section id="moderation" data-supabase-url="https://fgqntkzphufwpmuuoapv.supabase.co" data-supabase-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncW50a3pwaHVmd3BtdXVvYXB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY0ODA4OTUsImV4cCI6MjA3MjA1Njg5NX0.xBBBox755TfRZhxKDQDRpmMZ6P9xwkJiMU6W12M4Xr8">
+        <form id="moderator-login-form">
+          <div class="form-group">
+            <label for="moderator-email">Email</label>
+            <input id="moderator-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="moderator-password">Password</label>
+            <input id="moderator-password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit">Accedi</button>
+        </form>
+        <div id="moderation-status" role="status" aria-live="polite"></div>
+        <div id="moderation-dashboard" hidden>
           <button id="moderation-refresh" disabled style="margin-top:12px;">Aggiorna conteggi</button>
-          <div id="moderation-status" role="status" aria-live="polite"></div>
+          <p style="margin:8px 0 0;font-size:12px;color:rgba(226,232,240,0.7);">I dati qui sotto sono visibili unicamente ai moderatori verificati con il flag amministratore.</p>
           <div class="stats-grid" aria-live="polite">
             <article class="stat-card">
               <span data-stat="bans">0</span>
@@ -165,6 +167,7 @@
               <p>Domande universitarie</p>
             </article>
           </div>
+        </div>
         </section>
         <p class="notes">Configura gli attributi <code>data-supabase-url</code> e <code>data-supabase-key</code> oppure passa <code>window.UNION_MODERATOR_CONFIG</code> prima dello script per abilitare il login. Non inserire la service-role key in questa pagina pubblica.</p>
       </div>
