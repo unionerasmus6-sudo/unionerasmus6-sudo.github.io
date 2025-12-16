@@ -15,6 +15,15 @@
 
   if (!form || !statusEl || !refreshBtn) return;
 
+  var MAX_FAILED_ATTEMPTS = 5;
+  var LOCKOUT_DURATION_MS = 60 * 1000;
+  var FAILED_ATTEMPTS_KEY = 'moderatorFailedAttempts';
+  var LOCKOUT_KEY = 'moderatorLockoutUntil';
+  var failedAttempts = Number(localStorage.getItem(FAILED_ATTEMPTS_KEY) || 0);
+  var lockoutUntil = Number(localStorage.getItem(LOCKOUT_KEY) || 0);
+  var lockoutTimer = null;
+  var isLockedOut = false;
+
   var config = window.UNION_MODERATOR_CONFIG || {};
   var supabaseUrl = section.dataset.supabaseUrl || config.supabaseUrl || '';
   var supabaseAnonKey = section.dataset.supabaseKey || config.supabaseAnonKey || '';
@@ -48,18 +57,83 @@
     fetchSummary();
   });
 
+  checkLockout();
+
   function updateStatus(message, isError){
     statusEl.textContent = message;
     statusEl.classList.toggle('is-error', !!isError);
   }
 
+  function clearLockoutTimer(){
+    if (lockoutTimer){
+      clearTimeout(lockoutTimer);
+      lockoutTimer = null;
+    }
+  }
+
+  function refreshFormState(){
+    var disabled = isWorking || isLockedOut;
+    [emailInput, passwordInput, submitBtn].forEach(function(el){
+      if (el) el.disabled = disabled;
+    });
+  }
+
   function setWorking(value){
     isWorking = value;
-    if (submitBtn) submitBtn.disabled = value;
+    refreshFormState();
+  }
+
+  function checkLockout(){
+    clearLockoutTimer();
+    var now = Date.now();
+    if (lockoutUntil && now < lockoutUntil){
+      isLockedOut = true;
+      refreshFormState();
+      var remaining = Math.ceil((lockoutUntil - now) / 1000);
+      updateStatus('Troppi tentativi. Riprova tra ' + remaining + 's.', true);
+      lockoutTimer = setTimeout(checkLockout, 1000);
+      return;
+    }
+    var wasLocked = isLockedOut;
+    isLockedOut = false;
+    refreshFormState();
+    if (lockoutUntil){
+      lockoutUntil = 0;
+      localStorage.removeItem(LOCKOUT_KEY);
+    }
+    if (wasLocked){
+      failedAttempts = 0;
+      localStorage.removeItem(FAILED_ATTEMPTS_KEY);
+      updateStatus('Puoi riprovare ad accedere.', false);
+    }
+  }
+
+  function recordFailedAttempt(){
+    failedAttempts += 1;
+    localStorage.setItem(FAILED_ATTEMPTS_KEY, '' + failedAttempts);
+    if (failedAttempts >= MAX_FAILED_ATTEMPTS){
+      lockoutUntil = Date.now() + LOCKOUT_DURATION_MS;
+      localStorage.setItem(LOCKOUT_KEY, '' + lockoutUntil);
+      checkLockout();
+    }
+  }
+
+  function resetFailedAttempts(){
+    failedAttempts = 0;
+    localStorage.removeItem(FAILED_ATTEMPTS_KEY);
+    lockoutUntil = 0;
+    localStorage.removeItem(LOCKOUT_KEY);
+    clearLockoutTimer();
+    isLockedOut = false;
+    refreshFormState();
   }
 
   async function loginModerator(){
     if (isWorking) return;
+    if (isLockedOut){
+      checkLockout();
+      return;
+    }
     var email = (emailInput.value || '').trim();
     var password = passwordInput.value || '';
 
@@ -82,12 +156,15 @@
         throw new Error('Accesso riservato ai moderatori autenticati.');
       }
 
+      resetFailedAttempts();
       currentSession = response.data.session;
       updateStatus('Accesso autorizzato. Puoi aggiornare i conteggi.');
       refreshBtn.disabled = false;
       fetchSummary();
     } catch (error) {
-      updateStatus(error?.message || 'Impossibile completare l’accesso.', true);
+      var message = error?.message || 'Impossibile completare l\'accesso.';
+      updateStatus(message, true);
+      recordFailedAttempt();
     } finally {
       setWorking(false);
     }
