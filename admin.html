@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Admin Login · UniOn Moderazione</title>
+    <title>Admin Login · UniOn Erasmus</title>
     <meta name="description" content="Accesso riservato ai moderatori UniOn per controllare i contenuti e gli utenti.">
     <link rel="preload" href="assets/css/style.css" as="style">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -136,7 +136,7 @@
     <main>
       <div class="card" role="region" aria-labelledby="admin-login-title">
         <h1 id="admin-login-title">Accesso moderazione</h1>
-        <p>Inserisci le tue credenziali per controllare lo stato della moderazione. Solo utenti autorizzati possono proseguire.</p>
+        <p>Solo utenti autorizzati possono proseguire.</p>
         <section id="moderation" data-supabase-url="https://fgqntkzphufwpmuuoapv.supabase.co" data-supabase-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncW50a3pwaHVmd3BtdXVvYXB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY0ODA4OTUsImV4cCI6MjA3MjA1Njg5NX0.xBBBox755TfRZhxKDQDRpmMZ6P9xwkJiMU6W12M4Xr8">
         <form id="moderator-login-form">
           <div class="form-group">
@@ -150,13 +150,11 @@
           <button type="submit">Accedi</button>
         </form>
         <div id="moderation-status" role="status" aria-live="polite"></div>
-        <p class="notes" style="margin-top:24px;">Dopo l’autenticazione verrai reindirizzato alla dashboard di moderazione dove potrai controllare ban, segnalazioni e richieste universitarie.</p>
       </section>
-        <p class="notes">Configura gli attributi <code>data-supabase-url</code> e <code>data-supabase-key</code> oppure passa <code>window.UNION_MODERATOR_CONFIG</code> prima dello script per abilitare il login. Non inserire la service-role key in questa pagina pubblica.</p>
       </div>
     </main>
     <footer style="padding:20px;text-align:center;font-size:14px;color:rgba(226,232,240,0.6);">
-      <span>UniOn Moderazione — Solo accesso autorizzato.</span>
+      <span>UniOn — Solo accesso autorizzato.</span>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="assets/js/moderation.js" defer></script>
