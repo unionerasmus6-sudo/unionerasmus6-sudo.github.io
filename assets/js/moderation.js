@@ -12,6 +12,7 @@
     reports: document.querySelector('[data-stat="reports"]'),
     universities: document.querySelector('[data-stat="universities"]')
   };
+  var dashboardEl = document.getElementById('moderation-dashboard');
 
   if (!form || !statusEl || !refreshBtn) return;
 
@@ -128,6 +129,12 @@
     refreshFormState();
   }
 
+  function revealDashboard(){
+    if (dashboardEl){
+      dashboardEl.hidden = false;
+    }
+  }
+
   async function loginModerator(){
     if (isWorking) return;
     if (isLockedOut){
@@ -157,6 +164,7 @@
       }
 
       resetFailedAttempts();
+      revealDashboard();
       currentSession = response.data.session;
       updateStatus('Accesso autorizzato. Puoi aggiornare i conteggi.');
       refreshBtn.disabled = false;
